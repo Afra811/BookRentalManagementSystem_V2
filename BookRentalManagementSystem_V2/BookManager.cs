@@ -72,6 +72,19 @@ namespace BookRentalManagementSystem_V2
             }
         }
 
-        
+        public decimal ValidateBookRentalPrice()
+        {
+            decimal price;
+            do
+            {
+                Console.WriteLine("Rental price must be a positive value. Please enter a valid rental price:");
+                price = decimal.Parse(Console.ReadLine());
+                if (price <= 0)
+                {
+                    Console.WriteLine("Invalid input. Please try again.");
+                }
+            } while (price <= 0);
+            return price;
+        }
     }
 }
