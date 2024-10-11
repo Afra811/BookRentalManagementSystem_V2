@@ -26,6 +26,14 @@ namespace BookRentalManagementSystem_V2
             TotalBooks++;
         }
 
-       
+        public override string ToString()
+        {
+            return $"ID: {BookId}, Title: {Title}, Author: {Author}, RentalPrice: {RentalPrice}";
+        }
+
+        public virtual string DisplayBookInfo()
+        {
+            return $"ID: {BookId}, Title: {Title}, Author: {Author}, RentalPrice: {RentalPrice}";
+        }
     }
 }
