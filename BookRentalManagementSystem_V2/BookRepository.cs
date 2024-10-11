@@ -63,7 +63,7 @@ namespace BookRentalManagementSystem_V2
 
         }
 
-        public void GetBookById(int bookId)
+        public void GetBookById(string bookId)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -94,7 +94,7 @@ namespace BookRentalManagementSystem_V2
         }
 
 
-        public void UpdateBook(int bookId, string title, string author, decimal rentalprice)
+        public void UpdateBook(string bookId, string title, string author, decimal rentalprice)
         {
             Console.WriteLine(bookId);
             this.GetBookById(bookId);
@@ -121,7 +121,7 @@ namespace BookRentalManagementSystem_V2
             }
         }
 
-        public void DeleteBook(int bookId)
+        public void DeleteBook(string bookId)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -145,5 +145,16 @@ namespace BookRentalManagementSystem_V2
         }
 
 
+        public string CapitalizeTitle(string title)
+        {
+            var words = title.Split(' ');
+            for (int i = 0; i < words.Length; i++)
+            {
+                words[i] = char.ToUpper(words[i][0]) + words[i].Substring(1).ToLower();
+
+            }
+
+            return string.Join(" ", words);
+        }
     }
 }
